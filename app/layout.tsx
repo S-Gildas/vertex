@@ -17,8 +17,8 @@ const playfair = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Vertex Design System",
-  description: "The visual language, components, and principles of Vertex learning.",
+  title: "Vertex | Search your learning",
+  description: "Find the exact lessons you need across all your courses.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

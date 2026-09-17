@@ -281,3 +281,118 @@ button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px s
   .course-meta { flex-wrap: nowrap; }
   .principles { grid-template-columns: 1fr; gap: 15px; }
 }
+
+/* Homepage */
+.home-page { min-height: 100vh; background: repeating-linear-gradient(135deg, #fff9f6 0, #fff9f6 9px, #f7dfd4 10px, #fff9f6 11px); }
+.home-shell { width: min(100%, 966px); min-height: 100vh; margin: 0 auto; overflow: hidden; border-right: 1px solid #f5e4dc; border-left: 1px solid #f5e4dc; background: #fffdfc; }
+.home-header { height: 98px; display: flex; align-items: center; padding: 0 35px 0 39px; border-bottom: 1px solid #f0e5e1; background: rgb(255 255 255 / 72%); }
+.home-brand { display: inline-flex; align-items: center; color: inherit; text-decoration: none; }
+.home-brand .vertex-logo { gap: 8px; font-size: 23px; letter-spacing: -.7px; }
+.home-brand .vertex-logo svg { width: 35px; height: 35px; }
+.home-nav { display: flex; align-items: center; gap: 43px; margin-left: 60px; color: #11161b; font-size: 16px; }
+.home-nav a { color: inherit; text-decoration: none; }
+.home-nav a:hover, .home-section-heading a:hover { color: #dc4d23; }
+.home-header-end { display: flex; align-items: center; gap: 23px; margin-left: auto; }
+.home-notification { display: grid; place-items: center; color: #24292e; }
+.home-avatar { position: relative; width: 51px; height: 51px; display: block; overflow: hidden; border: 3px solid white; border-radius: 50%; background: linear-gradient(130deg, #d2c2b6, #f0e5dd 52%, #a99889); box-shadow: 0 0 0 1px #eee1da; }
+.home-avatar-face { position: absolute; z-index: 2; top: 11px; left: 17px; width: 18px; height: 24px; border-radius: 43% 43% 48% 48%; background: #e6ae8d; box-shadow: inset -4px 0 3px #c9896d; }
+.home-avatar-hair { position: absolute; z-index: 1; top: 3px; left: 11px; width: 27px; height: 39px; border-radius: 45% 45% 25% 25%; background: #49332d; }
+.home-avatar-body { position: absolute; z-index: 3; right: -4px; bottom: -14px; left: -4px; height: 31px; border-radius: 50% 50% 0 0; background: #172228; }
+.home-hero { min-height: 644px; display: flex; flex-direction: column; align-items: center; padding: 67px 30px 54px; text-align: center; border-bottom: 1px solid #f0e5e1; }
+.home-eyebrow { display: inline-flex; min-height: 38px; align-items: center; padding: 0 14px; border: 1px solid #f1dcd3; border-radius: 9px; color: #c7461c; background: #fffaf8; font-size: 12px; font-weight: 600; letter-spacing: 2.15px; line-height: 1; text-transform: uppercase; }
+.home-hero h1 { margin: 26px 0 25px; color: #101215; font-family: var(--font-playfair), Georgia, serif; font-size: clamp(42px, 6.3vw, 65px); font-weight: 500; letter-spacing: -2.7px; line-height: 1.11; }
+.home-hero p { margin: 0; color: #4b5563; font-size: 21px; line-height: 1.62; }
+.home-primary-link { min-width: 226px; min-height: 60px; display: inline-flex; align-items: center; justify-content: center; gap: 21px; margin-top: 35px; padding: 0 22px; border-radius: 9px; background: #e8653e; box-shadow: 0 3px 7px rgb(185 68 33 / 19%); color: white; font-size: 18px; text-decoration: none; }
+.home-primary-link:hover { background: #d9542f; }
+.home-primary-link svg { width: 23px; height: 23px; }
+.home-search { width: min(100%, 746px); height: 85px; display: flex; align-items: center; gap: 20px; margin-top: 42px; padding: 0 22px; border: 1px solid #f0dcd4; border-radius: 12px; background: white; box-shadow: 0 3px 8px rgb(190 119 91 / 10%); text-align: left; }
+.home-search:focus-within { border-color: #e8653e; box-shadow: 0 0 0 3px rgb(232 101 62 / 13%); }
+.home-search > svg { flex: none; color: #42494f; }
+.home-search input { min-width: 0; width: 100%; border: 0; outline: 0; background: transparent; color: #20262c; font-size: 20px; }
+.home-search input::placeholder { color: #8b93a2; opacity: 1; }
+.home-search input::-webkit-search-cancel-button { cursor: pointer; }
+.home-search kbd { flex: none; display: grid; place-items: center; min-width: 63px; height: 42px; padding: 0 8px; border: 1px solid #eadbd5; border-radius: 8px; color: #4d5560; background: white; font-family: inherit; font-size: 17px; white-space: nowrap; }
+.home-courses { padding: 51px 52px 0; }
+.home-section-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 26px; }
+.home-section-heading h2 { margin: 0; color: #14171a; font-family: var(--font-playfair), Georgia, serif; font-size: 27px; font-weight: 500; letter-spacing: -.9px; line-height: 1.3; }
+.home-section-heading a { display: inline-flex; align-items: center; gap: 13px; color: #d94c25; font-size: 15px; text-decoration: none; white-space: nowrap; }
+.home-section-heading a svg { width: 20px; height: 20px; }
+.home-course-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; }
+.home-course-card { min-width: 0; min-height: 373px; display: flex; flex-direction: column; padding: 31px 26px 29px; border: 1px solid #eedbd3; border-radius: 14px; background: #fff; }
+.home-course-art { width: 73px; height: 73px; display: grid; place-items: center; flex: none; }
+.home-course-art-next { border-radius: 11px; background: linear-gradient(135deg, #111 0%, #090909 65%, #272727 100%); box-shadow: inset 0 0 12px rgb(255 255 255 / 9%); color: white; font-family: Arial, sans-serif; font-size: 51px; font-weight: 500; line-height: 1; }
+.home-course-art-typescript { border-radius: 11px; background: #3376c9; color: white; font-size: 39px; font-weight: 700; letter-spacing: -2px; }
+.home-course-art-docker svg { width: 80px; height: 72px; }
+.home-course-card h3 { margin: 28px 0 18px; color: #17191c; font-family: var(--font-playfair), Georgia, serif; font-size: 21px; font-weight: 500; letter-spacing: -.6px; line-height: 1.25; white-space: nowrap; }
+.home-course-card p { margin: 0; color: #4b5563; font-size: 14px; line-height: 1.75; }
+.home-course-meta { display: flex; align-items: center; justify-content: space-between; gap: 5px; margin: auto -8px 0; padding-top: 21px; border-top: 1px solid #f0e4df; color: #4b5563; font-size: 10px; white-space: nowrap; }
+.home-course-meta span { display: inline-flex; align-items: center; gap: 6px; }
+.home-course-meta svg { flex: none; color: #536070; stroke-width: 1.5; }
+.home-announcement { display: flex; align-items: center; justify-content: center; gap: 31px; margin-top: 63px; color: #4d5661; }
+.home-announcement-line { height: 1px; flex: 1; background: #f0e4df; }
+.home-announcement svg { width: 24px; height: 24px; flex: none; color: #e8633c; }
+.home-announcement p { margin: 0 0 1px -10px; font-size: 18px; white-space: nowrap; }
+.home-skyline { height: 190px; display: flex; align-items: end; gap: 0; margin: 25px -52px 0; overflow: hidden; }
+.home-skyline span { height: 44%; flex: 1; background: linear-gradient(to bottom, rgb(255 241 237 / 0%), #ffb39c 74%, #ffe2d8); }
+.home-skyline span:nth-child(2) { height: 66%; }.home-skyline span:nth-child(3) { height: 80%; }.home-skyline span:nth-child(4) { height: 100%; }.home-skyline span:nth-child(5) { height: 64%; }.home-skyline span:nth-child(6) { height: 70%; }.home-skyline span:nth-child(7) { height: 45%; }.home-skyline span:nth-child(8) { height: 27%; }.home-skyline span:nth-child(9) { height: 42%; }.home-skyline span:nth-child(10) { height: 68%; }.home-skyline span:nth-child(11) { height: 100%; }.home-skyline span:nth-child(12) { height: 70%; }.home-skyline span:nth-child(13) { height: 88%; }
+
+@media (max-width: 900px) {
+  .home-header { padding-right: 28px; padding-left: 28px; }
+  .home-nav { margin-left: 38px; gap: 28px; }
+  .home-courses { padding-right: 30px; padding-left: 30px; }
+  .home-course-grid { gap: 12px; }
+  .home-course-card { padding-right: 18px; padding-left: 18px; }
+  .home-course-card h3 { font-size: 19px; }
+  .home-course-meta { margin-right: -5px; margin-left: -5px; font-size: 9px; }
+  .home-course-meta span { gap: 3px; }
+  .home-course-meta svg { width: 14px; height: 14px; }
+  .home-skyline { margin-right: -30px; margin-left: -30px; }
+}
+
+@media (max-width: 700px) {
+  .home-header { height: 82px; }
+  .home-brand .vertex-logo { font-size: 21px; }
+  .home-nav { gap: 20px; margin-left: 25px; font-size: 14px; }
+  .home-header-end { gap: 15px; }
+  .home-avatar { width: 42px; height: 42px; }
+  .home-hero { min-height: 0; padding: 62px 25px 60px; }
+  .home-hero h1 { font-size: clamp(42px, 7vw, 54px); }
+  .home-hero p { font-size: 18px; }
+  .home-search { height: 72px; }
+  .home-search input { font-size: 17px; }
+  .home-course-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-course-card { min-height: 350px; }
+  .home-announcement { gap: 18px; }
+  .home-announcement p { font-size: 15px; }
+}
+
+@media (max-width: 550px) {
+  .home-header { height: auto; min-height: 76px; flex-wrap: wrap; gap: 7px 0; padding: 15px 19px; }
+  .home-brand .vertex-logo svg { width: 30px; height: 30px; }
+  .home-nav { order: 3; width: 100%; justify-content: center; gap: 36px; margin: 4px 0 0; }
+  .home-header-end { margin-left: auto; }
+  .home-notification svg { width: 23px; height: 23px; }
+  .home-avatar { width: 39px; height: 39px; }
+  .home-hero { padding: 49px 18px 52px; }
+  .home-eyebrow { min-height: 34px; font-size: 10px; }
+  .home-hero h1 { margin-top: 26px; font-size: clamp(36px, 10vw, 48px); letter-spacing: -1.7px; }
+  .home-hero h1 br, .home-desktop-break { display: none; }
+  .home-hero p { font-size: 16px; line-height: 1.55; }
+  .home-primary-link { min-height: 54px; margin-top: 29px; font-size: 16px; }
+  .home-search { height: 62px; gap: 11px; margin-top: 34px; padding: 0 14px; }
+  .home-search > svg { width: 23px; height: 23px; }
+  .home-search input { font-size: 14px; }
+  .home-search kbd { min-width: 47px; height: 32px; font-size: 13px; }
+  .home-courses { padding: 37px 19px 0; }
+  .home-section-heading { align-items: baseline; margin-bottom: 23px; }
+  .home-section-heading h2 { font-size: 25px; }
+  .home-section-heading a { gap: 5px; font-size: 13px; }
+  .home-course-grid { grid-template-columns: 1fr; gap: 16px; }
+  .home-course-card { min-height: 316px; padding: 24px; }
+  .home-course-card h3 { white-space: normal; }
+  .home-course-meta { margin-right: 0; margin-left: 0; font-size: 10px; }
+  .home-announcement { gap: 10px; margin-top: 42px; }
+  .home-announcement svg { width: 20px; height: 20px; }
+  .home-announcement p { margin-left: 0; font-size: 12px; white-space: normal; text-align: center; }
+  .home-skyline { height: 145px; margin: 18px -19px 0; }
+}

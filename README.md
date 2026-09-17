@@ -1,6 +1,6 @@
 # Vertex
 
-Vertex is a learning platform in development. The current application contains the design-system reference page at `/`, based on the supplied Vertex design image.
+Vertex is a learning platform in development. The current application shows the homepage at `/` and the design-system reference at `/design-system`.
 
 ## Run locally
 
