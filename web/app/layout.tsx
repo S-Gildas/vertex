@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { ClerkProvider } from "@clerk/nextjs";
+import { PostHogIdentity } from "@/components/posthog-identity";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -24,5 +25,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  return <html lang="en" className={`${inter.variable} ${playfair.variable}`}><body><ClerkProvider signInUrl="/sign-in" signUpUrl="/sign-up">{children}</ClerkProvider></body></html>;
+  return <html lang="en" className={`${inter.variable} ${playfair.variable}`}><body><ClerkProvider signInUrl="/sign-in" signUpUrl="/sign-up"><PostHogIdentity />{children}</ClerkProvider></body></html>;
 }

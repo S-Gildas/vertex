@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CourseContent, type CourseModuleItem } from "@/components/course-content";
+import { CourseBookmarkButton, CourseContinueLink } from "@/components/course-actions";
 import { Icon, ProgressBar, VertexLogo } from "@/components/vertex-ui";
 import { getCourseBySlug } from "@/sanity/data";
 
@@ -131,8 +132,8 @@ export default async function CoursePage({ params }: PageProps) {
               {students ? <span><Icon name="user" size={20} />{students}</span> : null}
             </div>
             <div className="course-actions">
-              <a className="course-primary-action" href="#course-content">Continue Learning <ArrowIcon /></a>
-              <button className="course-bookmark" type="button"><Icon name="bookmark" size={21} />Bookmark</button>
+              <CourseContinueLink courseId={course._id} courseSlug={slug} source="hero" className="course-primary-action">Continue Learning <ArrowIcon /></CourseContinueLink>
+              <CourseBookmarkButton courseId={course._id} courseSlug={slug} />
             </div>
           </div>
         </section>
@@ -161,7 +162,7 @@ export default async function CoursePage({ params }: PageProps) {
         <section className="course-progress-strip" aria-label="Your course progress">
           <div className="course-progress-copy"><span>Your Progress</span><strong>0% complete</strong></div>
           <ProgressBar value={0} />
-          <a className="course-progress-action" href="#course-content">Continue Learning <ArrowIcon /></a>
+          <CourseContinueLink courseId={course._id} courseSlug={slug} source="progress_strip" className="course-progress-action">Continue Learning <ArrowIcon /></CourseContinueLink>
         </section>
       </main>
       <div className="course-skyline" aria-hidden="true"><span /><span /><span /><span /><span /><span /></div>

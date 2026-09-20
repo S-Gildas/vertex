@@ -1,7 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import posthog from "posthog-js";
 import { Icon } from "@/components/vertex-ui";
+
+const isPostHogConfigured = Boolean(
+  process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN &&
+  process.env.NEXT_PUBLIC_POSTHOG_HOST,
+);
 
 type LessonItem = {
   _id: string;
@@ -34,13 +40,35 @@ export function CourseContent({ modules }: { modules: CourseModuleItem[] }) {
   const [showAll, setShowAll] = useState(false);
   const visibleModules = showAll ? modules : modules.slice(0, INITIAL_MODULE_COUNT);
 
-  function toggleModule(moduleKey: string) {
+  function toggleModule(module: CourseModuleItem, moduleIndex: number, isExpanded: boolean) {
     setExpandedModules((current) => {
       const next = new Set(current);
-      if (next.has(moduleKey)) next.delete(moduleKey);
-      else next.add(moduleKey);
+      if (isExpanded) next.delete(module._key);
+      else next.add(module._key);
       return next;
     });
+
+    if (isPostHogConfigured) {
+      posthog.capture("course_module_toggled", {
+        module_key: module._key,
+        module_position: moduleIndex + 1,
+        expanded: !isExpanded,
+        lesson_count: module.lessons.length,
+        duration_seconds: module.duration,
+      });
+    }
+  }
+
+  function toggleModuleCollection() {
+    const willShowAll = !showAll;
+    setShowAll(willShowAll);
+    if (isPostHogConfigured) {
+      posthog.capture("course_module_collection_toggled", {
+        expanded: willShowAll,
+        module_count: modules.length,
+        initially_visible_count: INITIAL_MODULE_COUNT,
+      });
+    }
   }
 
   return <>
@@ -55,7 +83,7 @@ export function CourseContent({ modules }: { modules: CourseModuleItem[] }) {
             type="button"
             aria-expanded={isExpanded}
             aria-controls={panelId}
-            onClick={() => toggleModule(module._key)}
+            onClick={() => toggleModule(module, moduleIndex, isExpanded)}
           >
             <span className="course-module-number">{moduleIndex + 1}</span>
             <span className="course-module-copy">
@@ -82,7 +110,7 @@ export function CourseContent({ modules }: { modules: CourseModuleItem[] }) {
       type="button"
       aria-expanded={showAll}
       aria-controls="course-module-list"
-      onClick={() => setShowAll((current) => !current)}
+      onClick={toggleModuleCollection}
     >
       {showAll ? "Show fewer modules" : `Show all ${modules.length} modules`}
       <Icon name="chevron-down" size={18} className={showAll ? "is-rotated" : ""} />
