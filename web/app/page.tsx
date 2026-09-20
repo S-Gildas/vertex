@@ -36,7 +36,7 @@ function formatModuleCount(moduleCount: CourseCardData["moduleCount"]) {
 function CourseCard({ course }: { course: CourseCardData }) {
   const coverImageUrl = course.coverImage?.asset?.url;
 
-  return <article className="home-course-card">
+  const content = <>
     <span className="home-course-art">
       {coverImageUrl ? <Image className="home-course-art-image" src={coverImageUrl} alt={course.coverImage?.alt ?? ""} width={73} height={73} /> : null}
     </span>
@@ -47,7 +47,13 @@ function CourseCard({ course }: { course: CourseCardData }) {
       <span><Icon name="clock" size={16} />{formatDuration(course.duration)}</span>
       <span><Icon name="document" size={16} />{formatModuleCount(course.moduleCount)}</span>
     </div>
-  </article>;
+  </>;
+
+  if (!course.slug) return <article className="home-course-card">{content}</article>;
+
+  return <Link className="home-course-card" href={`/courses/${course.slug}`} aria-label={`View ${course.title ?? "course"}`}>
+    {content}
+  </Link>;
 }
 
 export default async function Home() {
