@@ -294,6 +294,13 @@ button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px s
 .home-nav a:hover, .home-section-heading a:hover { color: #dc4d23; }
 .home-header-end { display: flex; align-items: center; gap: 23px; margin-left: auto; }
 .home-notification { display: grid; place-items: center; color: #24292e; }
+.home-auth-sign-in, .home-auth-sign-up { min-height: 38px; border: 0; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+.home-auth-sign-in { color: #24292e; background: transparent; }
+.home-auth-sign-in:hover { color: #d9542f; }
+.home-auth-sign-up { color: #fff; background: #e8653e; }
+.home-auth-sign-up:hover { background: #d9542f; }
+.home-user-button { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
+.home-user-button .cl-avatarBox { width: 44px; height: 44px; }
 .home-avatar { position: relative; width: 51px; height: 51px; display: block; overflow: hidden; border: 3px solid white; border-radius: 50%; background: linear-gradient(130deg, #d2c2b6, #f0e5dd 52%, #a99889); box-shadow: 0 0 0 1px #eee1da; }
 .home-avatar-face { position: absolute; z-index: 2; top: 11px; left: 17px; width: 18px; height: 24px; border-radius: 43% 43% 48% 48%; background: #e6ae8d; box-shadow: inset -4px 0 3px #c9896d; }
 .home-avatar-hair { position: absolute; z-index: 1; top: 3px; left: 11px; width: 27px; height: 39px; border-radius: 45% 45% 25% 25%; background: #49332d; }
@@ -371,6 +378,8 @@ button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px s
   .home-brand .vertex-logo svg { width: 30px; height: 30px; }
   .home-nav { order: 3; width: 100%; justify-content: center; gap: 36px; margin: 4px 0 0; }
   .home-header-end { margin-left: auto; }
+  .home-header-end { gap: 6px; }
+  .home-auth-sign-in, .home-auth-sign-up { min-height: 34px; padding: 0 8px; font-size: 12px; }
   .home-notification svg { width: 23px; height: 23px; }
   .home-avatar { width: 39px; height: 39px; }
   .home-hero { padding: 49px 18px 52px; }
