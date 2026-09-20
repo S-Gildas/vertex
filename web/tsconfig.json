@@ -28,6 +28,10 @@
     "app/**/*.tsx",
     "components/**/*.ts",
     "components/**/*.tsx",
+    "sanity/**/*.ts",
+    "sanity.types.ts",
+    "next.config.ts",
+    "proxy.ts",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],

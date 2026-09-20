@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import { ClerkProvider } from "@clerk/nextjs";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -21,6 +23,6 @@ export const metadata: Metadata = {
   description: "Find the exact lessons you need across all your courses.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
-  return <html lang="en" className={`${inter.variable} ${playfair.variable}`}><body>{children}</body></html>;
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return <html lang="en" className={`${inter.variable} ${playfair.variable}`}><body><ClerkProvider signInUrl="/sign-in" signUpUrl="/sign-up">{children}</ClerkProvider></body></html>;
 }

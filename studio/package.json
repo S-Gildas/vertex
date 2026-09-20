@@ -1,0 +1,36 @@
+{
+  "name": "studio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "seed": "npm run seed:dry-run && npm run seed:preflight && npm run seed:backup && npm run seed:delete && sanity datasets import scripts/seed/seed.ndjson --replace --dataset production && npm run seed:validate",
+    "seed:build": "node scripts/seed/validate-fixture.mjs",
+    "seed:dry-run": "node scripts/seed/validate-fixture.mjs",
+    "seed:backup": "node scripts/seed/backup-dataset.mjs",
+    "seed:preflight": "sanity exec scripts/seed/replace-remote.mjs --with-user-token -- --preflight",
+    "seed:delete": "sanity exec scripts/seed/replace-remote.mjs --with-user-token -- --delete",
+    "seed:validate": "sanity exec scripts/seed/replace-remote.mjs --with-user-token -- --validate-remote",
+    "schema:deploy": "sanity schema deploy",
+    "schema:extract": "sanity schema extract --path ../web/sanity/schema.json",
+    "typegen": "sanity typegen generate",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@sanity/icons": "^3.8.0",
+    "@sanity/vision": "^5.31.2",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "sanity": "^5.31.2",
+    "styled-components": "^6.5.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
+  }
+}

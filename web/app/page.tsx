@@ -1,5 +1,6 @@
 import { HomeSearch } from "@/components/home-search";
 import { Icon, VertexLogo } from "@/components/vertex-ui";
+import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 const courses = [
@@ -68,7 +69,11 @@ export default function Home() {
         </nav>
         <div className="home-header-end">
           <span className="home-notification" aria-label="Notifications"><Icon name="bell" size={28} /></span>
-          <span className="home-avatar" aria-label="Profile"><span className="home-avatar-face" /><span className="home-avatar-hair" /><span className="home-avatar-body" /></span>
+          <Show when="signed-out">
+            <SignInButton><button className="home-auth-sign-in" type="button">Sign in</button></SignInButton>
+            <SignUpButton><button className="home-auth-sign-up" type="button">Sign up</button></SignUpButton>
+          </Show>
+          <Show when="signed-in"><span className="home-user-button"><UserButton /></span></Show>
         </div>
       </header>
 
