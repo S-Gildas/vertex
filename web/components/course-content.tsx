@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import posthog from "posthog-js";
+import Link from "next/link";
 import { Icon } from "@/components/vertex-ui";
 
 const isPostHogConfigured = Boolean(
@@ -12,6 +13,7 @@ const isPostHogConfigured = Boolean(
 type LessonItem = {
   _id: string;
   title: string | null;
+  slug: string | null;
   duration: number | null;
 };
 
@@ -97,7 +99,7 @@ export function CourseContent({ modules }: { modules: CourseModuleItem[] }) {
             {module.lessons.length > 0 ? <ol>
               {module.lessons.map((lesson, lessonIndex) => <li key={lesson._id}>
                 <span>{moduleIndex + 1}.{lessonIndex + 1}</span>
-                <strong>{lesson.title ?? `Lesson ${lessonIndex + 1}`}</strong>
+                <strong>{lesson.slug ? <Link href={`/lessons/${lesson.slug}`}>{lesson.title ?? `Lesson ${lessonIndex + 1}`}</Link> : lesson.title ?? `Lesson ${lessonIndex + 1}`}</strong>
                 <small>{formatDuration(lesson.duration ?? 0)}</small>
               </li>)}
             </ol> : <p>No lessons in this module yet.</p>}

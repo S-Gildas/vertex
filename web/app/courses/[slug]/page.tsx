@@ -76,6 +76,7 @@ export default async function CoursePage({ params }: PageProps) {
     const lessons = (module.lessons ?? []).map((lesson) => ({
       _id: lesson._id,
       title: lesson.title,
+      slug: lesson.slug,
       duration: lesson.duration,
     }));
     return {

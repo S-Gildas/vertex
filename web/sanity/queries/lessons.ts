@@ -14,7 +14,10 @@ export const LESSON_BY_SLUG_QUERY = defineQuery(`
         _id, name, "slug": slug.current,
         photo {alt, asset->{_id, url}}, expertise
       },
-      modules[]{_key, title, summary, "lessonIds": lessons[]._ref}
+      modules[]{
+        _key, title, summary,
+        lessons[]->{_id, title, "slug": slug.current, duration}
+      }
     }
   }
 `)

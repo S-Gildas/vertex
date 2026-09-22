@@ -53,15 +53,16 @@ export async function getLessonBySlug(slug: string) {
   const {modules, ...courseFields} = course
   const courseModules = modules ?? []
   const moduleIndex = courseModules.findIndex((module) =>
-    (module.lessonIds ?? []).includes(lesson._id),
+    (module.lessons ?? []).some((item) => item?._id === lesson._id),
   )
   const courseModule = moduleIndex >= 0 ? courseModules[moduleIndex] : null
-  const lessonIndex = courseModule?.lessonIds?.indexOf(lesson._id) ?? -1
+  const lessonIndex = courseModule?.lessons?.findIndex((item) => item?._id === lesson._id) ?? -1
 
   return {
     ...lessonFields,
     course: {
       ...courseFields,
+      modules: courseModules,
       module:
         courseModule && lessonIndex >= 0
           ? {
